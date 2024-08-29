@@ -1,0 +1,1557 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>自定义收藏夹</title>
+</head>
+<!--<script type="text/ecmascript" src="md5.js"></script>-->
+<script type="text/ecmascript" src="md5.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>-->
+<script language="javascript">
+//脚本区、影视区、小说区、视频网站选择
+	function div_area_text(){
+		// alert(hex_md5(psd.value))
+        var traget1=document.getElementById("div2");
+        var traget2=document.getElementById("div4");
+        var traget3=document.getElementById("div5");
+        var traget4=document.getElementById("div6");
+        var traget5=document.getElementById("div7");
+        var md5_psd="8a40677ac017e2ea990e54af843a103e"
+        //脚本区显示、隐藏
+	    if (hex_md5(psd.value)==md5_psd && document.getElementById("area2").checked){
+	         if(traget1.style.display=="none"){
+	            area_hidden()
+                traget1.style.display="";
+            }else {
+                area_nochecked()
+                area_hidden()
+            }
+        }
+        //影视区显示、隐藏
+	    else if (hex_md5(psd.value)==md5_psd && document.getElementById("area3").checked){
+	         if(traget2.style.display=="none"){
+                area_hidden()
+                traget2.style.display="";
+            }else {
+                area_nochecked()
+                area_hidden()
+            }
+        }
+        //小说区显示、隐藏
+	    else if (hex_md5(psd.value)==md5_psd && document.getElementById("area4").checked){
+	         if(traget3.style.display=="none"){
+                area_hidden()
+                traget3.style.display="";
+            }else {
+                area_nochecked()
+                area_hidden()
+            }
+        }
+        //视频网站区显示、隐藏
+	    else if (hex_md5(psd.value)==md5_psd && document.getElementById("area5").checked){
+	         if(traget4.style.display=="none"){
+                area_hidden()
+                traget4.style.display="";
+            }else {
+                nochecked()
+                area_hidden()
+            }
+        }
+        //我的网站区显示、隐藏
+	    else if (hex_md5(psd.value)==md5_psd && document.getElementById("area5").checked){
+	         if(traget5.style.display=="none"){
+                area_hidden()
+                traget5.style.display="";
+            }else {
+                nochecked()
+                area_hidden()
+            }
+        }
+    //psd未填写，单选框选择时
+	    else{
+	        alert("密码错误")
+            area_nochecked()
+            area_hidden()
+        }
+	}
+
+//区域回车
+    function area_on_keydown() {
+        if(event.keyCode==13){
+            div_area_text()
+        }
+	}
+
+//选择搜索引擎
+	function enquiry_href(){
+	    //影视搜索
+	    if (document.getElementById("search01").checked && document.getElementById("select_str").value!=""){
+	        window.open("https://so.360kan.com/?kw="+select_str.value);
+        }
+	    //360搜索
+	    else if (document.getElementById("search02").checked && document.getElementById("select_str").value!=""){
+	        window.open("https://www.so.com/s?q="+select_str.value);
+        }
+	    //360百科
+        else if (document.getElementById("search03").checked && document.getElementById("select_str").value!=""){
+	        window.open("https://baike.so.com/search/?q="+select_str.value);
+        }
+        //百度搜索
+        else if (document.getElementById("search04").checked && document.getElementById("select_str").value!=""){
+	        window.open("https://www.baidu.com/s?w="+select_str.value);
+        }
+        //百度百科
+        else if (document.getElementById("search05").checked && document.getElementById("select_str").value!=""){
+	        window.open("https://baike.baidu.com/item/"+select_str.value);
+        }
+        //搜狗搜索
+        else if (document.getElementById("search06").checked && document.getElementById("select_str").value!=""){
+	        window.open("https://www.sogou.com/web?query="+select_str.value);
+        }
+        //bing搜索
+        else if (document.getElementById("search07").checked && document.getElementById("select_str").value!=""){
+	        window.open("https://cn.bing.com/search?q="+select_str.value);
+        }
+        //百度文库搜索
+        else if (document.getElementById("search08").checked && document.getElementById("select_str").value!=""){
+	        window.open("https://wenku.baidu.com/search?word="+select_str.value);
+        }
+        //豆丁文库搜索
+        else if (document.getElementById("search09").checked && document.getElementById("select_str").value!=""){
+	        window.open("https://www.docin.com/search.do?nkey="+select_str.value);
+        }
+        //道客巴巴文库搜索
+        else if (document.getElementById("search10").checked && document.getElementById("select_str").value!=""){
+	        window.open("https://www.doc88.com/tag/"+select_str.value);
+        }
+        //原创力文档搜索
+        else if (document.getElementById("search11").checked && document.getElementById("select_str").value!=""){
+	        window.open("https://max.book118.com/search.html?q="+select_str.value);
+        }
+        //搜索引擎
+	    else if (document.getElementById("search12").checked && document.getElementById("select_str").value!=""){
+	        window.open("https://search.videoall.icu/search/ay1wc0JnblJzMlVDSjIyaHlvLU4zU1plSDhvQy1kUmF8c205cTE4dUlrOFk5UVNSaVdQdHNkM0M4REZXdTdKY2p8aldyY0FxWW03b09XaUhDZmdFMllJZHNucEJpU3JoNFA=/"+select_str.value);
+        }
+        //影视平台
+	    else if (document.getElementById("search13").checked && document.getElementById("select_str").value!=""){
+	        window.open("https://search.videoall.icu/search/ay1wc0JnblJzMlVDSjIyaHlvLU4zU1plSDhvQy1kUmF8bnpRSW1OOF9BT2VKbG9UYTRpb2cyQndSOUZSbVFyNXZ8X2d1MkJsRGFDTC1HSDJmT1pTOWNfLXBPdi1UWDZLUXg=/"+select_str.value);
+        }
+        //在线观看
+	    else if (document.getElementById("search14").checked && document.getElementById("select_str").value!=""){
+	        window.open("https://search.videoall.icu/search/ay1wc0JnblJzMlVDSjIyaHlvLU4zU1plSDhvQy1kUmF8bnpRSW1OOF9BT2VKbG9UYTRpb2cyQndSOUZSbVFyNXZ8X2d1MkJsRGFDTC1HSDJmT1pTOWNfLXBPdi1UWDZLUXg=/"+select_str.value);
+        }
+        //下载站点
+        else if (document.getElementById("search15").checked && document.getElementById("select_str").value!=""){
+	        window.open("https://search.videoall.icu/search/ay1wc0JnblJzMlVDSjIyaHlvLU4zU1plSDhvQy1kUmF8UHptY3FkU256VXc4bVlkWUN1cXNfcU95MW12NzdpUXh8MjZmbnQ3amhyRnNhQ1BSNnNxNUlVeTVmazloRXdSaVY=/"+select_str.value);
+        }
+        //网盘资源
+        else if (document.getElementById("search16").checked && document.getElementById("select_str").value!=""){
+	        window.open("https://search.videoall.icu/search/ay1wc0JnblJzMlVDSjIyaHlvLU4zU1plSDhvQy1kUmF8OEdTYVFwUzRCcEpITEVmS2xWbDhldi1ZSDJTanc3bVF8LUU1XzB3TVotcHQ5Mmh1cktEcEQ2blp3RGNnQUl4QVY=/"+select_str.value);
+        }
+        //VIP播放
+        else if (document.getElementById("search17").checked && document.getElementById("select_str").value!=""){
+	        window.open("https://vplugin.videoall.icu/?vip="+select_str.value);
+        }
+/*
+        //
+        else if (document.getElementById("search").checked && document.getElementById("select_str").value!=""){
+	        window.open(""+select_str.value);
+        }
+*/
+        else{
+            alert("请填写要搜索的内容")
+            search_engine_nochecked()
+        }
+    }
+
+//查询Stable Diffusion
+    function sd_search() {
+        sd_search1 = document.getElementById("sd_search")
+        if (sd_search1 != "") {
+            window.open("https://www.so.com/s?q=Stable%20Diffusion%20" + sd_search1.value);
+        }
+        else {
+            alert("请输入要搜索的内容")
+        }
+    }
+
+//隐藏
+    function area_hidden() {
+        var traget1=document.getElementById("div2");
+        var traget2=document.getElementById("div4");
+        var traget3=document.getElementById("div5");
+        var traget4=document.getElementById("div6");
+        var traget5=document.getElementById("div7");
+        traget1.style.display="none";
+        traget2.style.display="none";
+        traget3.style.display="none";
+        traget4.style.display="none";
+
+    }
+
+//不选择搜索引擎、显示区
+    function nochecked()  {
+        /*document.getElementById("select_str").value=""
+        document.getElementById("search01").checked=false
+        document.getElementById("search02").checked=false
+        document.getElementById("search03").checked=false
+        document.getElementById("search04").checked=false
+        document.getElementById("search05").checked=false
+        document.getElementById("search06").checked=false
+        document.getElementById("search07").checked=false
+        document.getElementById("search08").checked=false
+        document.getElementById("search09").checked=false
+        document.getElementById("search10").checked=false
+        document.getElementById("search11").checked=false
+        document.getElementById("search12").checked=false
+        document.getElementById("search13").checked=false
+        document.getElementById("search14").checked=false
+        document.getElementById("search15").checked=false
+        document.getElementById("search16").checked=false
+        document.getElementById("search17").checked=false
+        document.getElementById("psd").value=""
+        document.getElementById("area2").checked=false
+        document.getElementById("area3").checked=false
+        document.getElementById("area4").checked=false
+        document.getElementById("area5").checked=false*/
+        location.reload()
+    }
+
+//不选择显示区
+    function area_nochecked() {
+        document.getElementById("psd").value=""
+        document.getElementById("area2").checked=false
+        document.getElementById("area3").checked=false
+        document.getElementById("area4").checked=false
+        document.getElementById("area5").checked=false
+    }
+
+    //不选择搜索引擎
+    function search_engine_nochecked() {
+        document.getElementById("select_str").value=""
+        document.getElementById("search01").checked=false
+        document.getElementById("search02").checked=false
+        document.getElementById("search03").checked=false
+        document.getElementById("search04").checked=false
+        document.getElementById("search05").checked=false
+        document.getElementById("search06").checked=false
+        document.getElementById("search07").checked=false
+        document.getElementById("search08").checked=false
+        document.getElementById("search09").checked=false
+        document.getElementById("search10").checked=false
+        document.getElementById("search11").checked=false
+        document.getElementById("search12").checked=false
+        document.getElementById("search13").checked=false
+        document.getElementById("search14").checked=false
+        document.getElementById("search15").checked=false
+        document.getElementById("search16").checked=false
+        document.getElementById("search17").checked=false
+    }
+
+//查询回车
+    function selsect_on_keydown() {
+        if(event.keyCode==13){
+            enquiry_href()
+        }
+	}
+
+//鬼吹灯显示、隐藏
+	function gcd_tr(){
+        var traget1=document.getElementById("gcd2");
+        var traget2=document.getElementById("gcd3");
+	    if(traget1.style.display=="none" && traget2.style.display=="none"){
+            traget1.style.display="";
+            traget2.style.display="";
+        }
+	    else{
+            traget1.style.display="none";
+            traget2.style.display="none";
+        }
+	}
+
+//盗墓笔记显示、隐藏
+	function dmbj_tr(){
+        var traget1=document.getElementById("dmbj2");
+        var traget2=document.getElementById("dmbj3");
+	    if(traget1.style.display=="none" && traget2.style.display=="none"){
+            traget1.style.display="";
+            traget2.style.display="";
+        }
+	    else{
+            traget1.style.display="none";
+            traget2.style.display="none";
+        }
+	}
+
+//盗墓电影显示、隐藏
+	function dmdy_tr(){
+        var traget1=document.getElementById("dmdy2");
+        var traget2=document.getElementById("dmdy3");
+	    if(traget1.style.display=="none" && traget2.style.display=="none"){
+            traget1.style.display="";
+            traget2.style.display="";
+        }
+	    else{
+            traget1.style.display="none";
+            traget2.style.display="none";
+        }
+	}
+
+//视频网站显示、隐藏
+	function spwz_tr(){
+        var traget1=document.getElementById("spwz");
+	    if(traget1.style.display=="none"){
+            traget1.style.display="";
+        }
+	    else if(traget1.style.display!="none"){
+            traget1.style.display="none";
+        }
+	}
+
+//其他电影电视剧显示、隐藏
+	function dydjs_tr(){
+        var traget1=document.getElementById("dydjs");
+	    if(traget1.style.display=="none"){
+            traget1.style.display="";
+        }
+	    else{
+            traget1.style.display="none";
+        }
+	}
+
+//动画显示、隐藏
+	function dhp_tr(){
+        var traget1=document.getElementById("dhp");
+	    if(traget1.style.display=="none"){
+            traget1.style.display="";
+        }
+	    else{
+            traget1.style.display="none";
+        }
+	}
+
+//其他显示、隐藏
+	function other_tr(){
+        var traget1=document.getElementById("other");
+	    if(traget1.style.display=="none"){
+            traget1.style.display="";
+        }
+	    else{
+            traget1.style.display="none";
+        }
+	}
+
+//小说显示、隐藏
+	function xs_tr(){
+        var traget1=document.getElementById("xs");
+	    if(traget1.style.display=="none"){
+            traget1.style.display="";
+        }
+	    else{
+            traget1.style.display="none";
+        }
+	}
+
+//我的网站显示、隐藏
+	function myweb_tr(){
+        var traget1=document.getElementById("my_web");
+	    if(traget1.style.display=="none"){
+
+            traget1.style.display="";
+        }
+	    else{
+            traget1.style.display="none";
+        }
+	}
+
+	function myweb(){
+	    var traget1=document.getElementById("myweb");
+	    if(traget1.style.display=="none"){
+            traget1.style.display="";
+        }
+	    else{
+            traget1.style.display="none";
+        }
+    }
+
+	function ai(){
+	    var traget1=document.getElementById("ai");
+	    if(traget1.style.display=="none"){
+            traget1.style.display="";
+        }
+	    else{
+            traget1.style.display="none";
+        }
+    }
+
+	function game(){
+	    var traget1=document.getElementById("game");
+	    if(traget1.style.display=="none"){
+            traget1.style.display="";
+        }
+	    else{
+            traget1.style.display="none";
+        }
+    }
+
+// 在页面加载时从 localStorage 恢复数据
+	window.onload = function() {
+		const text1 = localStorage.getItem('text1');
+		const text2 = localStorage.getItem('text2');
+		const text3 = localStorage.getItem('text3');
+		const text4 = localStorage.getItem('text4');
+		const text5 = localStorage.getItem('text5');
+		const text6 = localStorage.getItem('text6');
+		const text7 = localStorage.getItem('text7');
+		const text8 = localStorage.getItem('text8');
+		const text9 = localStorage.getItem('text9');
+		const text10 = localStorage.getItem('text10');
+		const text11 = localStorage.getItem('text11');
+		const text12 = localStorage.getItem('text12');
+		const text13 = localStorage.getItem('text13');
+		const text14 = localStorage.getItem('text14');
+		const text15 = localStorage.getItem('text15');
+		const text16 = localStorage.getItem('text16');
+		const text17 = localStorage.getItem('text17');
+		const text18 = localStorage.getItem('text18');
+		const text19 = localStorage.getItem('text19');
+		const text20 = localStorage.getItem('text20');
+		const text21 = localStorage.getItem('text21');
+		const text22 = localStorage.getItem('text22');
+		const text23 = localStorage.getItem('text23');
+		const text24 = localStorage.getItem('text24');
+		const text25 = localStorage.getItem('text25');
+		const text26 = localStorage.getItem('text26');
+		const text27 = localStorage.getItem('text27');
+		const text28 = localStorage.getItem('text28');
+		const text29 = localStorage.getItem('text29');
+		const text30 = localStorage.getItem('text30');
+		const text31 = localStorage.getItem('text31');
+		const text32 = localStorage.getItem('text32');
+		const text33 = localStorage.getItem('text33');
+		const text34 = localStorage.getItem('text34');
+		const text35 = localStorage.getItem('text35');
+		const text36 = localStorage.getItem('text36');
+		const text37 = localStorage.getItem('text37');
+		const text38 = localStorage.getItem('text38');
+		const text39 = localStorage.getItem('text39');
+		const text40 = localStorage.getItem('text40');
+		const text41 = localStorage.getItem('text41');
+		const text42 = localStorage.getItem('text42');
+		const text43 = localStorage.getItem('text43');
+		const text44 = localStorage.getItem('text44');
+		const text45 = localStorage.getItem('text45');
+		const text46 = localStorage.getItem('text46');
+		const text47 = localStorage.getItem('text47');
+		const text48 = localStorage.getItem('text48');
+		const text49 = localStorage.getItem('text49');
+		const text50 = localStorage.getItem('text50');
+		const text51 = localStorage.getItem('text51');
+		const text52 = localStorage.getItem('text52');
+		const text53 = localStorage.getItem('text53');
+		if (text1) {
+			document.getElementById('text1').value = text1;
+		}
+		if (text2) {
+			document.getElementById('text2').value = text2;
+		}
+		if (text3) {
+			document.getElementById('text3').value = text3;
+		}
+		if (text4) {
+			document.getElementById('text4').value = text4;
+		}
+		if (text5) {
+			document.getElementById('text5').value = text5;
+		}
+		if (text6) {
+			document.getElementById('text6').value = text6;
+		}
+		if (text7) {
+			document.getElementById('text7').value = text7;
+		}
+		if (text8) {
+			document.getElementById('text8').value = text8;
+		}
+		if (text9) {
+			document.getElementById('text9').value = text9;
+		}
+		if (text10) {
+			document.getElementById('text10').value = text10;
+		}
+		if (text11) {
+			document.getElementById('text11').value = text11;
+		}
+		if (text12) {
+			document.getElementById('text12').value = text12;
+		}
+		if (text13) {
+			document.getElementById('text13').value = text13;
+		}
+		if (text14) {
+			document.getElementById('text14').value = text14;
+		}
+		if (text15) {
+			document.getElementById('text15').value = text15;
+		}
+		if (text16) {
+			document.getElementById('text16').value = text16;
+		}
+		if (text17) {
+			document.getElementById('text17').value = text17;
+		}
+		if (text18) {
+			document.getElementById('text18').value = text18;
+		}
+		if (text19) {
+			document.getElementById('text19').value = text19;
+		}
+		if (text20) {
+			document.getElementById('text20').value = text20;
+		}
+		if (text21) {
+			document.getElementById('text21').value = text21;
+		}
+		if (text22) {
+			document.getElementById('text22').value = text22;
+		}
+		if (text23) {
+			document.getElementById('text23').value = text23;
+		}
+		if (text24) {
+			document.getElementById('text24').value = text24;
+		}
+		if (text25) {
+			document.getElementById('text25').value = text25;
+		}
+		if (text26) {
+			document.getElementById('text26').value = text26;
+		}
+		if (text27) {
+			document.getElementById('text27').value = text27;
+		}
+		if (text28) {
+			document.getElementById('text28').value = text28;
+		}
+		if (text29) {
+			document.getElementById('text29').value = text29;
+		}
+		if (text30) {
+			document.getElementById('text30').value = text30;
+		}
+		if (text31) {
+			document.getElementById('text31').value = text31;
+		}
+		if (text32) {
+			document.getElementById('text32').value = text32;
+		}
+		if (text33) {
+			document.getElementById('text33').value = text33;
+		}
+		if (text34) {
+			document.getElementById('text34').value = text34;
+		}
+		if (text35) {
+			document.getElementById('text35').value = text35;
+		}
+		if (text36) {
+			document.getElementById('text36').value = text36;
+		}
+		if (text37) {
+			document.getElementById('text37').value = text37;
+		}
+		if (text38) {
+			document.getElementById('text38').value = text38;
+		}
+		if (text39) {
+			document.getElementById('text39').value = text39;
+		}
+		if (text40) {
+			document.getElementById('text40').value = text40;
+		}
+		if (text41) {
+			document.getElementById('text41').value = text41;
+		}
+		if (text42) {
+			document.getElementById('text42').value = text42;
+		}
+		if (text43) {
+			document.getElementById('text43').value = text43;
+		}
+		if (text44) {
+			document.getElementById('text44').value = text44;
+		}
+		if (text45) {
+			document.getElementById('text45').value = text45;
+		}
+		if (text46) {
+			document.getElementById('text46').value = text46;
+		}
+		if (text47) {
+			document.getElementById('text47').value = text47;
+		}
+		if (text48) {
+			document.getElementById('text48').value = text48;
+		}
+		if (text49) {
+			document.getElementById('text49').value = text49;
+		}
+		if (text50) {
+			document.getElementById('text50').value = text50;
+		}
+		if (text51) {
+			document.getElementById('text51').value = text51;
+		}
+		if (text52) {
+			document.getElementById('text52').value = text52;
+		}
+		if (text53) {
+			document.getElementById('text53').value = text53;
+		}
+		// 监听文本框的变化，并保存数据到 localStorage
+		['text1' , 'text2' , 'text3' , 'text4' , 'text5' , 'text6' , 'text7' , 'text8' , 'text9' , 'text10' , 'text11' , 'text12' , 'text13' , 'text14' , 'text15' , 'text16' , 'text17' , 'text18' , 'text19' , 'text20' , 'text21' , 'text22' , 'text23' , 'text24' , 'text25' , 'text26' , 'text27' , 'text28' , 'text29' , 'text30' , 'text31' , 'text32' , 'text33' , 'text34' , 'text35' , 'text36' , 'text37' , 'text38' , 'text39' , 'text40' , 'text41' , 'text42' , 'text43' , 'text44' , 'text45' , 'text46' , 'text47' , 'text48' , 'text49' , 'text50' , 'text51' , 'text52' , 'text53'].forEach(function(id) {
+			document.getElementById(id).addEventListener('input', function() {
+				localStorage.setItem(id, this.value);
+			});
+		});
+	};
+
+// 清空localStorage中的数据
+	function clearData() {
+		localStorage.removeItem('text1');
+		localStorage.removeItem('text2');
+		localStorage.removeItem('text3');
+		localStorage.removeItem('text4');
+		localStorage.removeItem('text5');
+		localStorage.removeItem('text6');
+		localStorage.removeItem('text7');
+		localStorage.removeItem('text8');
+		localStorage.removeItem('text9');
+		localStorage.removeItem('text10');
+		localStorage.removeItem('text11');
+		localStorage.removeItem('text12');
+		localStorage.removeItem('text13');
+		localStorage.removeItem('text14');
+		localStorage.removeItem('text15');
+		localStorage.removeItem('text16');
+		localStorage.removeItem('text17');
+		localStorage.removeItem('text18');
+		localStorage.removeItem('text19');
+		localStorage.removeItem('text20');
+		localStorage.removeItem('text21');
+		localStorage.removeItem('text22');
+		localStorage.removeItem('text23');
+		localStorage.removeItem('text24');
+		localStorage.removeItem('text25');
+		localStorage.removeItem('text26');
+		localStorage.removeItem('text27');
+		localStorage.removeItem('text28');
+		localStorage.removeItem('text29');
+		localStorage.removeItem('text30');
+		localStorage.removeItem('text31');
+		localStorage.removeItem('text32');
+		localStorage.removeItem('text33');
+		localStorage.removeItem('text34');
+		localStorage.removeItem('text35');
+		localStorage.removeItem('text36');
+		localStorage.removeItem('text37');
+		localStorage.removeItem('text38');
+		localStorage.removeItem('text39');
+		localStorage.removeItem('text40');
+		localStorage.removeItem('text41');
+		localStorage.removeItem('text42');
+		localStorage.removeItem('text43');
+		localStorage.removeItem('text44');
+		localStorage.removeItem('text45');
+		localStorage.removeItem('text46');
+		localStorage.removeItem('text47');
+		localStorage.removeItem('text48');
+		localStorage.removeItem('text49');
+		localStorage.removeItem('text50');
+		localStorage.removeItem('text51');
+		localStorage.removeItem('text52');
+		localStorage.removeItem('text53');
+        location.reload()
+	}
+
+	function psd_tx() {
+        document.getElementById("psd").value="5212268"
+    }
+
+</script>
+
+<body>
+<h1 align="center" style="color:red">我的收藏夹</h1>
+<!--搜索区收藏夹-->
+<div id="div3" style="width:auto">&nbsp;
+<!--搜索内容-->
+    <input id="select_str" type="text" style="width: 95%;height: 50px;font-size: 20px" onkeydown="selsect_on_keydown()"/>&nbsp;
+<!--搜索按钮-->
+<!--    <input type="button" id="Enquiry" value="搜索" style="height: 50px;width: 80px;font-size: 20px" onclick="Enquiry_href()"/>-->
+<br/>
+<!--搜索引擎选择-->
+    <span onclick="nochecked()">全</span><span onclick="search_engine_nochecked()">不选择</span>
+    <input name="search_engine" id="search01" type="radio" onclick="enquiry_href()"/>影视搜索
+    <input name="search_engine" id="search02" type="radio" onclick="enquiry_href()"/>360搜索
+    <input name="search_engine" id="search03" type="radio" onclick="enquiry_href()"/>360百科
+    <input name="search_engine" id="search04" type="radio" onclick="enquiry_href()"/>百度搜索
+    <input name="search_engine" id="search05" type="radio" onclick="enquiry_href()"/>百度百科
+    <input name="search_engine" id="search06" type="radio" onclick="enquiry_href()"/>搜狗搜索
+    <input name="search_engine" id="search07" type="radio" onclick="enquiry_href()"/>bing搜索
+    <input name="search_engine" id="search08" type="radio" onclick="enquiry_href()"/>百度文库搜索
+    <input name="search_engine" id="search09" type="radio" onclick="enquiry_href()"/>豆丁文库搜索
+    <input name="search_engine" id="search10" type="radio" onclick="enquiry_href()"/>道客巴巴文库搜索
+    <input name="search_engine" id="search11" type="radio" onclick="enquiry_href()"/>原创力文档搜索
+    <input name="search_engine" id="search12" type="radio" onclick="enquiry_href()"/>搜索引擎
+    <input name="search_engine" id="search13" type="radio" onclick="enquiry_href()"/>影视平台
+    <input name="search_engine" id="search14" type="radio" onclick="enquiry_href()"/>在线观看
+    <input name="search_engine" id="search15" type="radio" onclick="enquiry_href()"/>下载站点
+    <input name="search_engine" id="search16" type="radio" onclick="enquiry_href()"/>网盘资源
+    <input name="search_engine" id="search17" type="radio" onclick="enquiry_href()"/>VIP播放
+    <br/>
+<!--    <input name="search_engine" id="search18" type="radio" onclick="enquiry_href()"/>-->
+
+</div>
+<br/>
+<!--密码区-->
+<input name="psd" id="psd" type="password" style="font-size: 20px" onkeydown="area_on_keydown()" />
+<input name="area" id="area2" type="radio" onclick="div_area_text()"/>脚本区
+<input name="area" id="area3" type="radio" onclick="div_area_text()"/>影视区
+<input name="area" id="area4" type="radio" onclick="div_area_text()"/>小说区
+<input name="area" id="area5" type="radio" onclick="div_area_text()"/>我的网站
+<span id="clear" onclick="clearData()">清</span><span onclick="psd_tx()">空</span>
+<br/>
+<!--油猴脚本区收藏夹-->
+<div id="div2" style="width:auto;display: none">
+    <br/>
+<!--;display: none-->
+    <table width="100%" border="1">
+        <tr>
+            <td width="20%" align="center"><font color="#ff0000" size="5px"><strong>脚本区</strong></font><br/>
+<!--                <a href="chrome-extension://jinjaccalgkegednnccohejagnlnfdag/options/index.html" target="_blank"><font color="#000000">脚本控制台</font></a>--></td>
+            <td width="20%" align="center"><a href="暴力猴.crx" target="_blank"><font color="#000000">暴力猴.crx</font></a></td>
+            <td width="20%" align="center"><a href="油猴.crx" target="_blank"><font color="#000000">油猴.crx</font></a></td>
+            <td width="20%" align="center"><a href="https://greasyfork.org/zh-CN" target="_blank"><font color="#000000">暴力猴脚本大全</font></a></td>
+            <td width="20%" align="center"><a href="https://www.tampermonkey.net/scripts.php" target="_blank"><font color="#000000">油猴脚本大全</font></a></td>
+        </tr>
+        <tr>
+            <td width="20%" align="center">懒人专用，全网VIP视频免费破解去广告、全网音乐直接下载、知乎增强、短视频无水印下载、百度网盘直接下载等多功能工具箱，功能可独立开关。长期更新，放心使用<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/370634-懒人专用-全网VIP视频免费破解去广告-全网音乐直接下载-知乎增强-短视频无水印下载等多功能工具箱-功能可独立开关-长期更新-放心使用-v6" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://greasyfork.org/scripts/370634/懒人专用，全网VIP视频免费破解去广告、全网音乐直接下载、知乎增强、短视频无水印下载等多功能工具箱，功能可独立开关。长期更新，放心使用。v6.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">网盘精灵<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/416915-网盘精灵" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https:/greasyfork.org/scripts/416915-网盘精灵/code/网盘精灵.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">百度云去广告，快捷键倍速，免VIP解锁倍速、画质！全网独家！<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/422814-百度云去广告-快捷键倍速-免VIP解锁倍速、画质-全网独家" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https:/update.greasyfork.org/scripts/422814/百度云去广告，快捷键倍速，免VIP解锁倍速、画质！全网独家！.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">百度文库-精简&amp;优化<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/422847-百度文库-精简-优化" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/422847/百度文库-精简优化.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">万能验证码自动输入（升级版）<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/418942-万能验证码自动输入-升级版" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/418942/万能验证码自动输入（升级版）.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+        </tr>
+        <tr>
+            <td width="20%" align="center">【玩的嗨】VIP工具箱,夸克网盘直链批量获取,全网VIP视频免费破解去广告,获取B站封面,下载B站视频等众多功能聚合 长期更新，放心使用<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/384538-玩的嗨-VIP工具箱-夸克网盘直链批量获取-全网VIP视频免费破解去广告-获取B站封面-下载B站视频等众多功能聚合-长期更新-放心使用" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/384538/【玩的嗨】VIP工具箱%2C夸克网盘直链批量获取%2C全网VIP视频免费破解去广告%2C获取B站封面%2C下载B站视频等众多功能聚合%20长期更新，放心使用.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">超碰视频去广告，解决VIP限制<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/33116-超碰视频去广告-解决VIP限制" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/33116/超碰视频去广告，解决VIP限制.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">全网VIP视频免费破解去广告<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/434373-全网VIP视频免费破解去广告" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/434373/全网VIP视频免费破解去广告。.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">自动展开豆瓣、站长之家、米坛、cnbeta、知乎、慕课网、Awesomes、喜马拉雅、CSDN博客、CSDN下载、道客88、百度文库、百度知道、回形针、人民日报客户端、凤凰网页面的隐藏内容<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/397933-自动展开豆瓣-站长之家-米坛-cnbeta-知乎-慕课网-Awesomes-喜马拉雅-CSDN博客-CSDN下载-道客88-百度文库-百度知道-回形针-人民日报客户端-凤凰网页面的隐藏内容" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/397933/自动展开豆瓣、站长之家、米坛、cnbeta、知乎、慕课网、Awesomes、喜马拉雅、CSDN博客、CSDN下载、道客88、百度文库、百度知道、回形针、人民日报客户端、凤凰网页面的隐藏内容.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">CNKI 中国知网 PDF 全文下载<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/18841-cnki-中国知网-PDF-全文下载" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/18841/CNKI%20中国知网%20PDF%20全文下载.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+        </tr>
+        <tr>
+            <td width="20%" align="center">CSDN免登录复制<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/411919-CSDN免登录复制" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/411919/CSDN免登录复制.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">Wenku Doc Downloader<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/435884-wenku-doc-downloader" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/435884/wenku%20doc%20downloader.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">百度网盘不限速下载-KubeDown<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/463832-百度网盘不限速下载-KubeDown" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/463832/百度网盘不限速下载-KubeDown.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">B站哔哩哔哩使用增强，全网VIP视频免费破解去广告，知乎使用增强，短视频无水印下载，油管、Facebook等国外视频解析下载等<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/469407-b站哔哩哔哩使用增强-全网VIP视频免费破解去广告-知乎使用增强-短视频无水印下载-油管-Facebook等国外视频解析下载等" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/469407/B站哔哩哔哩使用增强，全网VIP视频免费破解去广告，知乎使用增强，短视频无水印下载，油管、Facebook等国外视频解析下载等😈.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+                <a href="https://github.com/huahuacatTX/greasyfork" target="_blank"><font color="#000000">Pro主页</font></a>&nbsp;
+                <a href="https://huahuacattx.github.io/huahuacat.user.js" target="_blank"><font color="#000000">Pro脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">全网VIP视频免费破解去广告、Fuck链接中间跳转页(直接跳转)、B站哔哩哔哩使用增强、知乎使用增强等多合一纯净脚本<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/390952-全网VIP视频免费破解去广告-Fuck链接中间跳转页(直接跳转)-B站哔哩哔哩使用增强-知乎使用增强等多合一纯净脚本" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/390952/%5B🤣%5D全网VIP视频免费破解去广告、Fuck链接中间跳转页%28直接跳转%29、B站哔哩哔哩使用增强、知乎使用增强等多合一纯净脚本.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+        </tr>
+        <tr>
+            <td width="20%" align="center">迅雷云盘<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/431256-迅雷云盘" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/431256/迅雷云盘.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">懒人专用系列 ——— 全网 VIP 视频破解去广告<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/467776-懒人专用系列-全网-VIP-视频破解去广告" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/467776/💯%20懒人专用系列%20———%20全网%20VIP%20视频破解去广告.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">全网VIP视频免费破解【专注一个脚本只做一件事件】<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/438657-全网VIP视频免费破解-专注一个脚本只做一件事件" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/438657/全网VIP视频免费破解【专注一个脚本只做一件事件】.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">懒人工具箱<br/>
+                <a href="https://gitlab.com/lanhaha/lanrenjiaoben/-/tree/main" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://gitlab.com/lanhaha/lanrenjiaoben/-/raw/main/jx.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">中国知网CNKI硕博论文PDF下载<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/389343-中国知网CNKI硕博论文PDF下载" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/389343/中国知网CNKI硕博论文PDF下载.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+        </tr>
+        <tr>
+            <td width="20%" align="center">CNKI PDF Download<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/426711-CNKI-PDF-Download" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/426711/CNKI%20PDF%20Download.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">知网检索增强<br/>
+                <a href="https://greasyfork.org/zh-CN/scripts/490258-知网检索增强" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/490258/知网检索增强.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center">[影视工具]VIP电影解析，短视频解析，搜索引擎，豆瓣/时光快搜<br/>
+                <a href="影视工具-VIP电影解析-短视频解析-搜索引擎-豆瓣-时光快搜" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href="https://update.greasyfork.org/scripts/497760/%5B影视工具%5DVIP电影解析，短视频解析，搜索引擎，豆瓣，时光快搜.user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center"><br/>
+                <a href="" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href=".user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+            <td width="20%" align="center"><br/>
+                <a href="" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                <a href=".user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+            </td>
+        </tr>
+<!--
+            <tr>
+                <td width="20%" align="center"><br/>
+                    <a href="" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                    <a href=".user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+                </td>
+                <td width="20%" align="center"><br/>
+                    <a href="" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                    <a href=".user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+                </td>
+                <td width="20%" align="center"><br/>
+                    <a href="" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                    <a href=".user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+                </td>
+                <td width="20%" align="center"><br/>
+                    <a href="" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                    <a href=".user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+                </td>
+                <td width="20%" align="center"><br/>
+                    <a href="" target="_blank"><font color="#000000">主页</font></a>&nbsp;
+                    <a href=".user.js" target="_blank"><font color="#000000">脚本安装</font></a>
+                </td>
+            </tr>
+-->
+    </table>
+<br/>
+</div>
+<!--影视区收藏夹-->
+<div id="div4" style="width:auto;display: none">
+<!--;display: none-->
+    <br/>
+    <span>未上映的影视为红色</span>
+    <table width="100%" border="1">
+<!--视频网站-->
+        <tr>
+            <td colspan="5" style="font-size: 20px" onclick="spwz_tr()"><font color="#ff0000">视频网站</font></td>
+        </tr>
+<!--视频网站网址-->
+        <tr id="spwz" style="display: none">
+            <td colspan="5">
+                <table width="100%" border="1">
+                    <tr>
+                        <td width="20%" align="center"><a href="https://v.qq.com/" target="_blank"><font color="#000000">腾讯视频</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.youku.com/" target="_blank"><font color="#000000">优酷</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.bilibili.com/" target="_blank"><font color="#000000">哔喱哔喱</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.iqiyi.com/" target="_blank"><font color="#000000">爱奇艺</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.mgtv.com/" target="_blank"><font color="#000000">芒果TV</font></a></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://www.le.com/" target="_blank"><font color="#000000">乐视</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.pptv.com/" target="_blank"><font color="#000000">PPTV</font></a></td>
+                        <td width="20%" align="center"><a href="https://vip.1905.com/" target="_blank"><font color="#000000">1905VIP影院</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.fun.tv/" target="_blank"><font color="#000000">风行</font></a></td>
+                        <td width="20%" align="center"><a href="https://search.videoall.icu/" target="_blank"><font color="#000000">视搜</font></a></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://tv.sohu.com/" target="_blank"><font color="#000000">搜狐视频</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.douyin.com/" target="_blank"><font color="#000000">抖音</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.kuaishou.com/" target="_blank"><font color="#000000">快手</font></a></td>
+                        <td width="20%" align="center"><a href="http://www.mylhz.com/" target="_blank"><font color="#000000">蚂蚁影视</font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+<!--电影、电视剧-->
+        <tr>
+            <td colspan="5" style="font-size: 20px" onclick="dmdy_tr()"><font color="#ff0000">盗墓电影、电视剧</font></td>
+        </tr>
+<!--鬼吹灯-->
+        <tr id="dmdy2" style="display: none">
+            <td width="20%" align="center" onclick="gcd_tr()"><font color="#ff0000" size="5px"><strong title="1、《鬼吹灯之精绝古城》； 2、《鬼吹灯之龙岭迷窟》；                       3、《鬼吹灯之云南虫谷》；  4、《鬼吹灯之昆仑神宫》；
+5、《鬼吹灯之黄皮子坟》； 6、《鬼吹灯之南海归墟》；                       7、《鬼吹灯之怒晴湘西》；  8、《鬼吹灯之巫峡棺山》；
+9、《鬼吹灯之牧野诡事》；10、《鬼吹灯之金棺陵兽》(又名《贼猫》)； 11、《鬼吹灯之迷踪之国》；12、《鬼吹灯之摸金校尉》；">《鬼吹灯》</strong></font><br/>
+                <a href="https://v.qq.com/x/search/?q=%E9%AC%BC%E5%90%B9%E7%81%AF" target="_blank"><font color="#000000">腾讯视频</font></a>&nbsp;
+                <a href="https://so.360kan.com/?kw=%E9%AC%BC%E5%90%B9%E7%81%AF" target="_blank"><font color="#000000">360影视</font></a>
+            </td>
+            <td width="20%" align="center" onclick="tc()">《鬼吹灯之精绝古城》<br/>
+                <a href="https://v.qq.com/x/cover/mzc00200rcd0dy0/h0044bijsnt.html" target="_blank"><font color="#000000">电影</font></a>&nbsp;
+                <a href="https://v.qq.com/x/cover/i200hs4ip5a6u7a/w0022948t5m.html" target="_blank"><font color="#000000">电视剧</font></a><input type="text" id="text1" style="width: 30px;text-align: center" value=""></td><!-- onfocusout="saveData()"-->
+            <td width="20%" align="center">《鬼吹灯之龙岭迷窟》<br/>
+                <a href="https://v.youku.com/v_show/id_XNDYxNjI5Mjk4MA==.html?tpa=dW5pb25faWQ9MTAyMjEzXzEwMDAwN18wMV8wMQ&from=360sousuo&refer=360sousuo"
+                   target="_blank"><font color="#000000">电影</font></a>&nbsp;
+                <a href="https://v.qq.com/x/cover/mzc00200q06w7zx/l0033spqumo.html" target="_blank"><font color="#000000">电视剧</font></a><input type="text" id="text2" style="width: 30px;text-align: center" value="">
+            </td>
+            <td width="20%" align="center">《鬼吹灯之云南虫谷》<br/>
+                <a href="https://v.qq.com/x/cover/5lmuabxmb5jf1fl.html" target="_blank"><font color="#000000">电影</font></a>&nbsp;
+                <a href="https://v.qq.com/x/cover/mzc00200wk4wxlp/x0040k2j0ii.html" target="_blank"><font color="#000000">电视剧</font></a><input type="text" id="text3" style="width: 30px;text-align: center" value="">
+            </td>
+            <td width="20%" align="center">《鬼吹灯之昆仑神宫》<br/>
+                <a href="https://v.qq.com/x/cover/mzc00200mhyxg8f/v0035pbp7i1.html" target="_blank"><font color="#000000">电影</font></a>&nbsp;
+                <a href="https://v.qq.com/x/cover/mzc002000pcdwox/u00445z1gcx.html" target="_blank"><font color="#000000">电视剧</font></a><input type="text" id="text4" style="width: 30px;text-align: center" value="">
+            </td>
+        </tr>
+        <tr id="gcd2" style="display: none">
+            <td width="20%" align="center">《鬼吹灯之黄皮子坟》<br/>
+                <a href="https://v.qq.com/x/cover/mzc00200595vis8/t0040d9npaf.html" target="_blank"><font color="#000000">黄皮幽冢电影</font></a>&nbsp;
+                <a href="https://v.qq.com/x/cover/mzc00200mt43s5r.html" target="_blank"><font color="#000000">黄皮子坟电影</font></a>&nbsp;
+                <a href="https://v.qq.com/x/cover/yoz60y87rdgl1vp/y00240ny2xe.html" target="_blank"><font color="#000000">电视剧</font></a><input type="text" id="text5" style="width: 30px;text-align: center" value="">
+            </td>
+            <td width="20%" align="center">《鬼吹灯之南海归墟》<br/>
+                <a href="https://www.iqiyi.com/v_1mhrrqzljeo.html?vfm=f_191_360y&fv=p_09_01" target="_blank"><font color="#000000">电影</font></a>&nbsp;
+                <a href="https://v.qq.com/x/cover/mzc00200tl9nvn9/j0047a185to.html" target="_blank"><font color="#000000">电视剧</font></a><input type="text" id="text6" style="width: 30px;text-align: center" value="">
+            </td>
+            <td width="20%" align="center">《鬼吹灯之怒晴湘西》<br/>
+                <a href="https://v.qq.com/x/cover/mzc00200o5otmir/s0034zo7lan.html" target="_blank"><font color="#000000">电影</font></a>&nbsp;
+                <a href="https://v.qq.com/x/cover/79npj83isb0ylvq/l0029fi58lh.html" target="_blank"><font color="#000000">电视剧</font></a><input type="text" id="text7" style="width: 30px;text-align: center" value="">
+            </td>
+            <td width="20%" align="center">《鬼吹灯之巫峡棺山》<br/><a href="" target="_blank"><font color="#ff0000">电影</font></a>&nbsp;
+                <a href="" target="_blank"><font color="#ff0000">电视剧</font></a><input type="text" id="text8" style="width: 30px;text-align: center" value="">
+            </td>
+            <td width="20%" align="center">《鬼吹灯之牧野诡事》<br/>
+                <a href="https://v.qq.com/x/cover/mzc0020089kxfjs/s0040zzvs4u.html" target="_blank"><font color="#000000">电影</font></a>&nbsp;
+                <a href="https://www.diediao2025.com/vodplay/61980-1-1.html" target="_blank"><font color="#000000">电视剧</font></a><input type="text" id="text9" style="width: 30px;text-align: center" value="">
+            </td>
+        </tr>
+        <tr id="gcd3" style="display: none">
+            <td width="20%" align="center">《鬼吹灯之金棺陵兽》(又名《贼猫》)<br/>
+                <a href="" target="_blank"><font color="#ff0000">电影</font></a>&nbsp;
+                <a href="" target="_blank"><font color="#ff0000">电视剧</font></a><input type="text" id="text10" style="width: 30px;text-align: center" value=""></td>
+            <td width="20%" align="center">《鬼吹灯之迷踪之国》<br/><a href="" target="_blank"><font color="#ff0000">电影</font></a>&nbsp;
+                <a href="" target="_blank"><font color="#ff0000">电视剧</font></a><input type="text" id="text11" style="width: 30px;text-align: center" value=""></td>
+            <td width="20%" align="center">《鬼吹灯之摸金校尉》<br/><a href="" target="_blank"><font color="#ff0000">电影</font></a>&nbsp;
+                <a href="" target="_blank"><font color="#ff0000">电视剧</font></a><input type="text" id="text12" style="width: 30px;text-align: center" value=""></td>
+            <td width="20%" align="center">
+                <a href="https://v.qq.com/x/cover/mzc0020010hqsc1/f0033sctdk2.html" target="_blank"><font color="#000000">番外《最后的搬山道人》电影</font></a><br/>
+                <a href="https://so.360kan.com/?kw=%E9%AC%BC%E5%90%B9%E7%81%AF%E4%B9%8B%E5%AF%BB%E9%BE%99%E8%AF%80" target="_blank"><font color="#000000" title="后四部改编而成">番外《鬼吹灯之寻龙诀》电影</font></a><br/>
+                <a href="https://www.360kan.com/m/faTmZBH2Q0f5SB.html" target="_blank"><font color="#000000">番外《鬼吹灯之九层妖塔》电影</font></a></td>
+            <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+        </tr>
+<!--盗墓笔记-->
+        <tr id="dmdy3" style="display: none">
+            <td width="20%" align="center" onclick="dmbj_tr()"><font color="#ff0000" size="5px"><strong title="
+01、《盗墓笔记之老九门》；　　02、《盗墓笔记之七星鲁王宫》；03、《盗墓笔记之怒海潜沙和秦岭神树》；04、《盗墓笔记之云顶天宫》；
+05、《盗墓笔记之蛇沼鬼城》；　06、《盗墓笔记之谜海归巢》；　07、《盗墓笔记之阴山古楼》；　　　　　08、《盗墓笔记之邛笼石影》；
+09、《盗墓笔记之大结局》；　　10、番外《藏海花》；　　　　　11、番外《盗墓笔记之沙海》；　　　　　12、番外《盗墓笔记之吴邪的私家笔记》；
+13、《盗墓笔记之重启极海听雷》
+">《盗墓笔记》</strong></font><br/>
+                <a href="https://so.360kan.com/?kw=%E7%9B%97%E5%A2%93%E7%AC%94%E8%AE%B0" target="_blank"><font color="#000000">360影视</font></a>
+            </td>
+            <td width="20%" align="center">《盗墓笔记之老九门》<br/>
+                <a href="" target="_blank"><font color="#ff0000">电影</font></a>&nbsp;
+                <a href="https://www.iqiyi.com/v_19rrmbr34s.html?vfm=f_191_360y&fv=p_09_01" target="_blank"><font color="#000000">电视剧</font></a><input type="text" id="text13" style="width: 30px;text-align: center" value="">
+            </td>
+            <td width="20%" align="center">《盗墓笔记之七星鲁王宫》<br/>
+                <a href="" target="_blank"><font color="#ff0000">电影</font></a>&nbsp;
+                <a href="https://www.iqiyi.com/v_19rrohr1jc.html?vfm=f_191_360y&fv=p_09_01" target="_blank"><font color="#000000">电视剧</font></a><input type="text" id="text14" style="width: 30px;text-align: center" value="">
+            </td>
+            <td width="20%" align="center">《盗墓笔记之怒海潜沙和秦岭神树》<br/>
+                <a href="" target="_blank"><font color="#ff0000">电影</font></a>&nbsp;
+                <a href="https://v.qq.com/x/cover/75ijb6qovzrhtp7/p00310knsz4.html?ptag=360kan.tv.free" target="_blank"><font color="#000000">电视剧</font></a><input type="text" id="text15" style="width: 30px;text-align: center" value="">
+            </td>
+            <td width="20%" align="center">《盗墓笔记之云顶天宫》<br/>
+                <a href="" target="_blank"><font color="#ff0000">电影</font></a>&nbsp;
+                <a href="https://v.qq.com/x/cover/mzc002003q7sks5/c0039s1xcqh.html?ptag=360kan.tv.free" target="_blank"><font color="#000000">电视剧</font></a><input type="text" id="text16" style="width: 30px;text-align: center" value="">
+            </td>
+        </tr>
+        <tr id="dmbj2" style="display: none">
+            <td width="20%" align="center"><font size="3px">《盗墓笔记之蛇沼鬼城》、《盗墓笔记之谜海归巢》<br/>《盗墓笔记之阴山古楼》、《盗墓笔记之邛笼石影》</font><br/>
+                <a href="" target="_blank"><font color="#ff0000">电影</font></a>&nbsp;
+                <a href="https://www.iqiyi.com/v_1hgyraojqjc.html?vfm=f_191_360y&fv=p_09_01" target="_blank"><font color="#000000">电视剧</font></a><input type="text" id="text17" style="width: 30px;text-align: center" value="">
+            </td>
+            <td width="20%" align="center">《盗墓笔记之大结局》<br/>
+                <a href="" target="_blank"><font color="#ff0000">电影</font></a>&nbsp;
+                <a href="" target="_blank"><font color="#ff0000">电视剧</font></a><input type="text" id="text18" style="width: 30px;text-align: center" value="">
+            </td>
+            <td width="20%" align="center">番外《盗墓笔记之藏海花》<br/><a href="" target="_blank">
+                <font color="#ff0000">电影</font></a>&nbsp;
+                <a href="" target="_blank"><font color="#ff0000">电视剧</font></a>
+            </td>
+            <td width="20%" align="center">番外《盗墓笔记之沙海》<br/>
+                <a href="" target="_blank"><font color="#ff0000">电影</font></a>&nbsp;
+                <a href="https://v.qq.com/x/cover/79m0lxrtiovlg73/d0027j9renh.html?ptag=360kan.tv.free" target="_blank"><font color="#000000">电视剧</font></a><input type="text" id="text19" style="width: 30px;text-align: center" value="">
+            </td>
+            <td width="20%" align="center">番外《盗墓笔记之吴邪的私家笔记》<br/>
+                <a href="" target="_blank"><font color="#ff0000">电影</font></a>&nbsp;
+                <a href="" target="_blank"><font color="#ff0000">电视剧</font></a>
+            </td>
+        </tr>
+        <tr id="dmbj3" style="display: none">
+            <td width="20%" align="center">《盗墓笔记之重启极海听雷》<br/>
+                <a href="" target="_blank"><font color="#ff0000">电影</font></a>&nbsp;
+                <a href="https://www.iqiyi.com/v_2ffkwycne88.html?vfm=f_191_360y&fv=p_09_01" target="_blank"><font color="#000000">第一季</font></a><input type="text" id="text20" style="width: 30px;text-align: center" value="">&nbsp;
+                <a href="https://www.iqiyi.com/v_ulduwjfswo.html?vfm=f_245_360d&fv=p_09_01" target="_blank"><font color="#000000">第二季</font></a><input type="text" id="text21" style="width: 30px;text-align: center" value="">
+            </td>
+            <td width="20%" align="center"><br/>
+                <a href="" target="_blank"><font color="#ff0000"></font></a>&nbsp;
+                <a href="" target="_blank"><font color="#ff0000"></font></a>
+
+            <td width="20%" align="center"><br/>
+                <a href="" target="_blank"><font color="#ff0000"></font></a>&nbsp;
+                <a href="" target="_blank"><font color="#ff0000"></font></a>
+        </td>
+            <td width="20%" align="center"><br/>
+                <a href="" target="_blank"><font color="#ff0000"></font></a>&nbsp;
+                <a href="" target="_blank"><font color="#ff0000"></font></a>
+            </td>
+            <td width="20%" align="center"><br/>
+                <a href="" target="_blank"><font color="#ff0000"></font></a>&nbsp;
+                <a href="" target="_blank"><font color="#ff0000"></font></a>
+            </td>
+        </tr>
+<!--其他电影电视剧-->
+        <tr>
+            <td colspan="5" style="font-size: 20px" onclick="dydjs_tr()"><font color="#ff0000">其他电影、电视剧</font></td>
+        </tr>
+<!--我看的电影电视剧-->
+        <tr id="dydjs" style="display: none">
+            <td colspan="5">
+                <table width="100%" border="1">
+                    <tr>
+                        <td width="20%" align="center"><a href="https://www.iqiyi.com/v_19rro58axk.html?vfm=f_245_360d&fv=p_09_01" target="_blank"><font color="#000000">潜伏者</font></a><input type="text" id="text22" style="width: 30px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="https://v.youku.com/v_show/id_XMjQ0ODk0NTAw.html?tpa=dW5pb25faWQ9MTAyMjEzXzEwMDAwNl8wMV8wMQ&from=360sousuo&refer=TPA_market.qrwang_00002949_000000_rqqQRb_18111600" target="_blank"><font color="#000000">我是特种兵</font></a><input type="text" id="text23" style="width: 30px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="https://www.iqiyi.com/v_19rrjse1cs.html?vfm=f_191_360y&fv=p_09_01" target="_blank"><font color="#000000">我是特种兵之利刃出鞘</font></a><input type="text" id="text24" style="width: 30px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="https://v.qq.com/x/cover/x82ve0q5llr8l8f/n0013bet5e4.html" target="_blank"><font color="#000000">我是特种兵之火凤凰</font></a><input type="text" id="text25" style="width: 30px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="https://v.qq.com/x/cover/dibxs88zjpysl7r/c00198xy1sb.html?ptag=360kan.tv.free" target="_blank"><font color="#000000">我是特种兵之霹雳火</font></a><input type="text" id="text26" style="width: 30px;text-align: center" value=""></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://v.youku.com/v_show/id_XOTQzMzA5Mzc2.html?tpa=dW5pb25faWQ9MTAyMjEzXzEwMDAwNl8wMV8wMQ&from=360sousuo&refer=TPA_market.qrwang_00002949_000000_rqqQRb_18111600" target="_blank"><font color="#000000">特警力量</font></a><input type="text" id="text27" style="width: 30px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="https://v.qq.com/x/cover/rbqgk5c9m8h8n9p/d0026tnfou6.html?ptag=360kan.tv.free" target="_blank"><font color="#000000">利刃出击</font></a><input type="text" id="text28" style="width: 30px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+<!--动画片-->
+        <tr>
+            <td colspan="5" style="font-size: 20px" onclick="dhp_tr()"><font color="#ff0000">动画</font></td>
+        </tr>
+<!--我看的动画-->
+        <tr id="dhp" style="display: none">
+            <td colspan="5">
+                <table width="100%" border="1">
+                    <tr>
+                        <td width="20%" align="center">
+                            <a href="https://v.qq.com/x/cover/324olz7ilvo2j5f.html" target="_blank"><font color="#000000">《吞噬星空》</font></a><input type="text" id="text29" style="width: 30px;text-align: center" value=""><br/>每周二10点更新</td>
+                        <td width="20%" align="center">
+                            <a href="https://v.qq.com/x/cover/mzc00200n53vkqc.html" target="_blank"><font color="#000000">《遮天》</font></a><input type="text" id="text30" style="width: 30px;text-align: center" value=""><br/>每周三10点更新</td>
+                        <td width="20%" align="center">
+                            <a href="https://v.qq.com/x/cover/mzc002007j7p5hn.html" target="_blank"><font color="#000000">《神印王座》</font></a><input type="text" id="text31" style="width: 30px;text-align: center" value=""><br/>每周四10点更新</td>
+                        <td width="20%" align="center">
+                            <a href="https://v.qq.com/x/cover/mcv8hkc8zk8lnov.html" target="_blank"><font color="#000000">《完美世界》</font></a><input type="text" id="text32" style="width: 30px;text-align: center" value=""><br/>每周五10点更新</td>
+                        <td width="20%" align="center">
+                            <a href="https://v.qq.com/x/cover/mzc00200xf3rir6.html" target="_blank"><font color="#000000">《斗罗大陆》</font></a><input type="text" id="text33" style="width: 30px;text-align: center" value=""><br/>每周六10点更新</td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center">
+                            <a href="https://v.qq.com/x/cover/mzc00200kwy29cd.html" target="_blank"><font color="#000000">《诛仙》</font></a><input type="text" id="text34" style="width: 30px;text-align: center" value=""><br/>每周六10点更新</td>
+                        <td width="20%" align="center">
+                            <a href="https://v.qq.com/x/cover/mzc0020027yzd9e.html" target="_blank"><font color="#000000">《斗破苍穹》</font></a><input type="text" id="text35" style="width: 30px;text-align: center" value=""><br/>每周日10点更新</td>
+                        <td width="20%" align="center">
+                            <a href="https://v.qq.com/x/cover/mzc00200fgtkshj.html" target="_blank"><font color="#000000">《小兵传奇》</font></a><input type="text" id="text36" style="width: 30px;text-align: center" value=""><br/>每周日10点更新</td>
+                        <td width="20%" align="center">
+                            <a href="https://v.qq.com/x/cover/mzc00200af2rm6b.html" target="_blank"><font color="#000000">《星辰变》</font></a><input type="text" id="text37" style="width: 30px;text-align: center" value=""><br/>每周？10点更新</td>
+                        <td width="20%" align="center"><a href="https://v.youku.com/v_show/id_XNTkzNjcwOTkwOA==.html" target="_blank"><font color="#000000">师兄啊师兄</font></a><br/>每周四10点更新</td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""><br/>每周？10点更新</td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""><br/>每周？10点更新</td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""><br/>每周？10点更新</td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""><br/>每周？10点更新</td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""><br/>每周？10点更新</td>
+                    </tr>
+<!--                    <tr>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""><br/>每周？10点更新</td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""><br/>每周？10点更新</td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""><br/>每周？10点更新</td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""><br/>每周？10点更新</td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 30px;text-align: center" value=""><br/>每周？10点更新</td>
+                    </tr>-->
+                </table>
+            </td>
+        </tr>
+<!--其他-->
+        <tr>
+            <td colspan="5" style="font-size: 20px" onclick="other_tr()"><font color="#ff0000">其他</font></td>
+        </tr>
+<!--其他视频-->
+        <tr id="other" style="display: none">
+            <td colspan="5">
+                <table width="100%" border="1">
+                     <tr>
+                        <td width="20%" align="center"><a href="http://www.yjsp.com/" target="_blank"><font color="#000000">妖精视频</font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        </table>
+    <br/>
+</div>
+<!--小说区收藏夹-->
+<div id="div5" style="width:auto;display: none">
+    <br/>
+    <table width="100%" border="1">
+        <tr>
+            <td colspan="5" style="font-size: 20px" onclick="xs_tr()"><font color="#ff0000">小说</font></td>
+        </tr>
+<!--        <tr id="xs" style="display: none">-->
+        <tr>
+            <td>
+                <table width="100%" border="1">
+                    <tr>
+                        <td width="20%" align="center"><a href="http://www.hao123.com/book" target="_blank"><font color="#000000">小说hao123上网导航</font></a></td>
+                        <td width="20%" align="center"><a href="http://m.quanbenxsk.com/" target="_blank"><font color="#000000">零点看书</font></a><input type="text" id="text38" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="https://www.81zwla.com/" target="_blank"><font color="#000000">八一中文</font></a><input type="text" id="text39" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="https://www.37zw.net/" target="_blank"><font color="#000000">三七中文</font></a><input type="text" id="text40" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="http://www.xxsy.net/" target="_blank"><font color="#000000">潇湘书院</font></a><input type="text" id="text41" style="width: 100px;text-align: center" value=""></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://www.zjsw.org/" target="_blank"><font color="#000000">爪机书屋</font></a><input type="text" id="text42" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="https://www.xbiqugu.net/" target="_blank"><font color="#000000">香书小说</font></a><input type="text" id="text43" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="https://www.zongheng.com/" target="_blank"><font color="#000000">纵横中文网</font></a><input type="text" id="text44" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="https://www.17k.com/" target="_blank"><font color="#000000">17K小说网</font></a><input type="text" id="text45" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="http://www.biquge5200.cc/" target="_blank"><font color="#000000">笔趣阁</font></a><input type="text" id="text46" style="width: 100px;text-align: center" value=""></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://fanqienovel.com/" target="_blank"><font color="#000000">番茄小说</font></a><input type="text" id="text47" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="https://b.faloo.com/" target="_blank"><font color="#000000">飞卢小说网</font></a><input type="text" id="text48" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="https://www.jjwxc.net/" target="_blank"><font color="#000000">晋江文学城</font></a><input type="text" id="text49" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="https://www.hongxiu.com/" target="_blank"><font color="#000000">红袖读书</font></a><input type="text" id="text50" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="https://chuangshi.qq.com/" target="_blank"><font color="#000000">创世中文网</font></a><input type="text" id="text51" style="width: 100px;text-align: center" value=""></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="http://www.gdbzkz.info/guichuideng/" target="_blank"><font color="#000000">鬼吹灯</font></a><input type="text" id="text52" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="http://m.quanbenxsk.com/50/50797/" target="_blank"><font color="#000000">盗墓笔记</font></a><input type="text" id="text53" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 100px;text-align: center" value=""></td>
+                    </tr>
+<!--
+                    <tr>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 100px;text-align: center" value=""></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a><input type="text" id="text" style="width: 100px;text-align: center" value=""></td>
+                    </tr>-->
+                </table>
+            </td>
+        </tr>
+    </table>
+    <br/>
+</div>
+<!--我的网站-->
+<div id="div6" style="width:auto;display: none">
+    <br/>
+    <table width="100%" border="1">
+        <tr>
+            <td colspan="5" style="font-size: 20px" onclick="myweb()"><font color="#ff0000"><strong>我的网站</strong></font></td>
+        </tr>
+<!--        <tr id="my_web" style="display: none">-->
+        <tr id="myweb" style="display: none">
+            <td>
+                <table width="100%" border="1">
+                    <tr>
+                        <td width="20%" align="center"><a href="https://etax.liaoning.chinatax.gov.cn/sword?ctrl=LoginCtrlTmp_logout#" target="_blank"><font color="#000000">国家税务总局辽宁省税务局</font></a></td>
+                        <td width="20%" align="center"><a href="http://www.atoolbox.net/" target="_blank"><font color="#000000">一个工具箱(包含AI提示词)</font></a></td>
+                        <td width="20%" align="center"><a href="https://pan.baidu.com/" target="_blank"><font color="#000000">百度网盘</font></a></td>
+                        <td width="20%" align="center"><a href="https://github.com/" target="_blank"><font color="#000000">github仓库</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.aippt.cn/" target="_blank"><font color="#000000">AiPPT-全智能AI一键生成PPT</font></a></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://www.mimouse.com/" target="_blank"><font color="#000000">咪鼠</font></a>&nbsp;
+                            <a href="https://www.mimouse.com/products.html" target="_blank"><font color="#000000">咪鼠下载</font></a>&nbsp;</td>
+                        <td width="20%" align="center"><a href="https://www.islide.cc/" target="_blank"><font color="#000000">islide</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.edrawsoft.cn" target="_blank"><font color="#000000">亿图</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.chuangkit.com/" target="_blank"><font color="#000000">创客贴</font></a></td>
+                        <td width="20%" align="center"><a href="https://mubu.com/home" target="_blank"><font color="#000000">幕布</font></a></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://www.liuchengtu.com/" target="_blank"><font color="#000000">迅捷画图</font></a></td>
+                        <td width="20%" align="center"><a href="https://youyan.xyz/" target="_blank"><font color="#000000">有言</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.toolnb.com/" target="_blank"><font color="#000000">爱资料工具-好用的在线工具箱</font></a></td>
+                        <td width="20%" align="center"><a href="https://sp.1fooai.com/" target="_blank"><font color="#000000">尼卡短视频</font></a></td>
+                        <td width="20%" align="center" title="密码1234">边界AIchatV<br/>
+                            <a href="https://ai1foo.com/" target="_blank"><font color="#000000">边界AI</font></a>&nbsp;
+                            <a href="https://lanzou.com/" target="_blank"><font color="#000000">我的</font></a>&nbsp;
+                            <a href="https://wwb.lanzoub.com/b032c2ezza" target="_blank"><font color="#000000">蓝奏</font></a>&nbsp;
+                            <a href="https://wwb.lanzoub.com/b032c2f1sf" target="_blank"><font color="#000000">我的</font></a>&nbsp;
+                            <a href="https://dmla.lanzouw.com/b05pao8eh" target="_blank"><font color="#000000">安卓</font></a>&nbsp;
+                            <a href="https://wwb.lanzoub.com/b032c2f4ch" target="_blank"><font color="#000000">我的</font></a>
+                            <a href="https://dmla.lanzouw.com/b05pfn9mf" target="_blank"><font color="#000000">电脑</font></a>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://wqzb175.com/?agent=tg&app=tg600" target="_blank"><font color="#000000">玩球直播</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.emu666.com/" target="_blank"><font color="#000000">老游戏模拟器</font></a></td>
+                        <td width="20%" align="center"><a href="https://llili.li/" target="_blank"><font color="#000000">短链转换器</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.moyuoo.com/" target="_blank"><font color="#000000">热梗词典——墨鱼词典</font></a></td>
+                        <td width="20%" align="center"><a href="https://cotrans.touhou.ai/" target="_blank"><font color="#000000">漫画翻译器</font></a></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://www.yuque.com/" target="_blank"><font color="#000000">语雀——开发者文档</font></a></td>
+                        <td width="20%" align="center"><a href="http://kimi.ai" target="_blank"><font color="#000000">KiMi Ai</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.aconvert.com/cn" target="_blank"><font color="#000000">在线转换文件</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.tool77.com/" target="_blank"><font color="#000000">七七工具</font></a></td>
+                        <td width="20%" align="center"><a href="https://pdf.wps.cn/?from=search" target="_blank"><font color="#000000">PDF在线工具，PDF在线转换</font></a></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://www.pdfpai.com/" target="_blank"><font color="#000000">PDF派，PDF在线转换</font></a></td>
+                        <td width="20%" align="center"><a href="http://www.docpe.com/word/txt-to-doc-html.aspx" target="_blank"><font color="#000000">在线Text文本文件转Word和网页</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.jinchutou.com/" target="_blank"><font color="#000000">金锄头文库</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.tukuppt.com/" target="_blank"><font color="#000000">熊猫办公，模板</font></a></td>
+                        <td width="20%" align="center">EXCEL工具箱<br/>
+                            <a href="https://yyb.excelhome.net/download/" target="_blank"><font color="#000000">Excel易用宝</font></a>&nbsp;
+                            <a href="https://www.ahzll.top/" target="_blank"><font color="#000000">Excel必备工具箱</font></a>&nbsp;
+                            <a href="http://www.ffcell.com/" target="_blank"><font color="#000000">方方格子</font></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center">WORD工具箱<br/>
+                            <a href="https://www.ahzll.top/HELP/PAGE/blog_5488e3a90100u8ux.html" target="_blank"><font color="#000000">WORD必备工具箱</font></a>
+                        </td>
+                        <td width="20%" align="center">PPT工具箱<br/>
+                            <a href="" target="_blank"><font color="#000000"></font></a>&nbsp;
+                        </td>
+                        <td width="20%" align="center"><a href="https://malagis.com/" target="_blank"><font color="#000000">麻辣GIS</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.cnblogs.com/liweis" target="_blank"><font color="#000000">我也是个傻瓜-博客园</font></a></td>
+                        <td width="20%" align="center"><a href="http://bbs.3s001.com/forum.php" target="_blank"><font color="#000000">地信网</font></a>&nbsp;
+                            <a href="http://bbs.3s001.com/search.php" target="_blank"><font color="#000000">搜索</font></a>&nbsp;
+                            <a href="http://bbs.3s001.com/forum-94-1.html" target="_blank"><font color="#000000">ARCGIS</font></a>&nbsp;
+                            <a href="http://bbs.3s001.com/forum-146-1.html" target="_blank"><font color="#000000">南方CASS教程</font></a>&nbsp;
+                            <a href="http://bbs.3s001.com/forum-95-1.html" target="_blank"><font color="#000000">CAD教程</font></a>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://www.cnblogs.com/gisoracle/tag/arcgis/" target="_blank"><font color="#000000">arcgis-博客园</font></a></td>
+                        <td width="20%" align="center">ARCGIS帮助文档<br/>
+                            <a href="https://resources.arcgis.com/zh-cn/help/main/10.2/index.html" target="_blank"><font color="#000000">ARCGIS10.2</font></a>&nbsp;
+                            <a href="https://pro.arcgis.com/zh-cn/pro-app/latest/arcpy/main/arcgis-pro-arcpy-reference.htm" target="_blank"><font color="#000000">PRO</font></a>&nbsp;
+                            <a href="https://pro.arcgis.com/zh-cn/pro-app/latest/arcpy/functions/alphabetical-list-of-arcpy-functions.htm" target="_blank"><font color="#000000">arcpy_PRO</font></a>&nbsp;
+                        </td>
+                        <td width="20%" align="center"><a href="http://www.bigemap.com/" target="_blank"><font color="#000000">bigemap</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.ovital.com/" target="_blank"><font color="#000000">奥维</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.bangongziyuan.com/" target="_blank"><font color="#000000">办公资源网，模板</font></a></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://www.2ppt.com/" target="_blank"><font color="#000000">爱PPT，模板</font></a></td>
+                        <td width="20%" align="center"><a href="https://qxyzsolb0r0.feishu.cn/wiki/Mhefw4dpyilfJ3kDaTic616anMf" target="_blank"><font color="#000000">网络电视</font></a></td>
+                        <td width="20%" align="center">Vposy<br/>
+                            <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzIyNjU2NzIxNQ==&action=getalbum&album_id=2441131413052981256#wechat_redirect" target="_blank"><font color="#000000">软件下载</font></a>&nbsp;
+                            <a href="https://mp.weixin.qq.com/s/bDAV-AQQkH3HXOCVs7Mzyw" target="_blank"><font color="#000000">WIN</font></a>&nbsp;
+                            <a href="https://mp.weixin.qq.com/s/3I871h9s-GU926X5wPY72g" target="_blank"><font color="#000000">MAC</font></a>&nbsp;
+                            <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzIyNjU2NzIxNQ==&action=getalbum&album_id=3519590123413487618#wechat_redirect" target="_blank"><font color="#000000">插件合集全套一键安装包</font></a></td>
+                        <td width="20%" align="center"><a href="https://mp.weixin.qq.com/s/LXm5H_Oj3a6j8jMOgmpRJw" target="_blank"><font color="#000000">Autodesk强力卸载修复软件！</font></a></td>
+                        <td width="20%" align="center"><a href="https://mp.weixin.qq.com/s/czGRgt0yEbyrbXK7c0AbhQ" target="_blank"><font color="#000000">Office2024</font></a></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://wwou.lanzoub.com/b04wo1vve" target="_blank" title="gk9f"><font color="#000000">强力卸载流氓软件</font></a></td>
+                        <td width="20%" align="center"><a href="https://downloadlynet.ir/" target="_blank"><font color="#000000">软件下载</font></a></td>
+                        <td width="20%" align="center"><a href="https://forum.mobilism.org/viewforum.php?f=399" target="_blank"><font color="#000000">安卓应用</font></a></td>
+                        <td width="20%" align="center"><a href="https://nsaneforums.com/forum/48-software-updates/" target="_blank"><font color="#000000">国外下载论坛</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.kugou.com/" target="_blank"><font color="#000000">ADOBE全家桶</font></a></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://www.kugou.com/" target="_blank"><font color="#000000">酷狗</font></a></td>
+                        <td width="20%" align="center"><a href="https://music.163.com/" target="_blank"><font color="#000000">网易云音乐</font></a></td>
+                        <td width="20%" align="center"><a href="http://www.kuwo.cn/" target="_blank"><font color="#000000">酷我音乐</font></a></td>
+                        <td width="20%" align="center"><a href="https://y.qq.com/" target="_blank"><font color="#000000">QQ音乐</font></a></td>
+                        <td width="20%" align="center">登科教育
+                            <a href="https://shop98349353.youzan.com/wscvis/course/detail/2omzd11km4hpdn9?kdt_id=98157185&qr=paidcolumn_2omzd11km4hpdn9" target="_blank"><font color="#000000">51录</font></a>&nbsp;
+                            <a href="https://shop98349353.youzan.com/wscvis/course/detail/26uh7ylgvpc6po1?kdt_id=98157185&isPreview=1" target="_blank"><font color="#000000">54录</font></a>&nbsp;
+                            <a href="https://u.shkt.online/PClive/?ds_id=339763#/" target="_blank"><font color="#000000">54直</font></a>&nbsp;
+                            <a href="https://ab.shkt.online/Bnwr1/HoHAKf5t1" target="_blank"><font color="#000000">54新录</font></a>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://www.socrazy.com/courselive/88/learn#lesson/0" target="_blank"><font color="#000000">狂人学院</font></a></td>
+                        <td width="20%" align="center"><a href="https://ke.qq.com/" target="_blank"><font color="#000000">腾讯课堂</font></a></td>
+                        <td width="20%" align="center"><a href="https://so.htknow.com/seeCourse.html" target="_blank"><font color="#000000">海豚知道</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.luffycity.com/study/special" target="_blank"><font color="#000000">路飞学堂</font></a></td>
+                        <td width="20%" align="center"><a href="https://huke88.com/" target="_blank"><font color="#000000">虎课网</font></a></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://www.youxiaohou.com/download.html" target="_blank"><font color="#000000">油小猴相关软件下载</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.cfenfa.com/?_refluxos=a10" target="_blank"><font color="#000000">app分发</font></a></td>
+                        <td width="20%" align="center"><a href="https://kebeiyun.com/index/index/index.html" target="_blank"><font color="#000000">可呗云分发</font></a></td>
+                        <td width="20%" align="center"><a href="http://www.tsg211.com/" target="_blank"><font color="#000000">211图书馆</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.moyin.com/" target="_blank"><font color="#000000">魔音工坊</font></a></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://www.jb51.net/" target="_blank"><font color="#000000">脚本之家</font></a>&nbsp;
+                            <span onclick=alert("解压密码：www.jb51.net或者0daydown")> 解压密码</span>
+                        </td>
+                        <td width="20%" align="center">
+                            <a href="https://www.douyin.com" target="_blank"><font color="#000000">抖音</font></a>&nbsp;
+                            <a href="https://creator.douyin.com/creator-micro/content/manage" target="_blank"><font color="#000000">抖音创作者中心</font></a>
+                        </td>
+                        <td width="20%" align="center"><a href="https://www.sysceo.com/" target="_blank"><font color="#000000">驱动总裁官网</font></a></td>
+                        <td width="20%" align="center"><a href="https://wqah2qdyned.feishu.cn/wiki/YELZwBjyziBmYCkFoDicytYSncg" target="_blank"><font color="#000000">苹果&安卓&电视软件合集（每日持续更新）</font></a></td>
+                        <td width="20%" align="center"><a href="https://appbojxs8j34194.h5.xiaoeknow.com/giftcode/0061653486578408068" target="_blank"><font color="#000000">小亦AI课200节</font></a></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://www.xiaoe-tech.com/" target="_blank"><font color="#000000">小亦AI课专属资料</font></a></td>
+                        <td width="20%" align="center"><a href="https://gitmind.cn/" target="_blank"><font color="#000000">在线思维导图</font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                    </tr>
+                </table>
+<!--
+                    <tr>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                    </tr>-->
+        <tr>
+            <td colspan="5" align="left" style="font-size: 20px;color: #ff0000" onclick="ai()"><strong>AI</strong></td>
+        </tr>
+        <tr id="ai" style="display: none">
+            <td>
+                <table width="100%" border="1">
+                    <tr>
+                        <td width="20%" align="center"><a href="https://feizhuke.com/#term-6606" target="_blank"><font color="#000000">ai导航-非猪ai导航,让你秒变飞猪ai工具箱集网站,汇聚国内外知名aigc软件服务</font></a></td>
+                        <td width="20%" align="center">哩布哩布
+                            <a href="https://civitai.com/" target="_blank"><font color="#000000">国外</font></a>&nbsp;
+                            <a href="https://www.liblib.art/" target="_blank"><font color="#000000">国内</font></a>&nbsp;
+                            <a href="My_Stable_Diffusion_Model_Download.html" target="_blank"><font color="#000000">下载地址及教程</font></a>
+                        </td>
+                        <td width="20%" align="center">
+                            <a href="http://127.0.0.1:7860/?__theme=dark" target="_blank"><font color="#000000">Stable Diffusion</font></a><br/><span onclick="sd_search()"><font color="#000000">搜索</font></span><input id="sd_search" type="text" style="width: 100px;font-size: 20px"/>&nbsp;
+                            <a href="https://fanyi.youdao.com/" target="_blank"><font color="#000000">有道翻译</font></a>
+                        </td>
+                        <td width="20%" align="center"><a href="file:///F:/文件/!学习/NovelAi魔导书/index.html" target="_blank"><font color="#000000">NovelAi魔导书—AI提示词生成</font></a></td>
+                        <td width="20%" align="center"><a href="https://ai-edu.aigcfun.com/" target="_blank"><font color="#000000">AI对话大师主页</font></a>&nbsp;
+                            <a href="https://art.forchange.cn/" target="_blank"><font color="#000000">AI艺术家</font></a>&nbsp;
+                            <a href="https://ai-edu.aigcfun.com/chat-home" target="_blank"><font color="#000000">AI对话大师</font></a>&nbsp;
+                            <a href="" target="_blank"><font color="#000000">风变AI智能办公助手（暂无）</font></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center">
+                            <a href="https://s.tensgpt.com/143U0e" target="_blank"><font color="#000000">tensai云电脑</font></a>&nbsp;
+                            <a href="https://tensai.tenclass.com/scenes/normal" target="_blank"><font color="#000000">tensai</font></a>
+                        </td>
+                        <td width="20%" align="center"><a href="https://aihh.hzqyw.cn/h5/painting3/i2.html?self_os=1&platform_id=24&app_id=1299&agency_id=162&channel_id=15226&qhclickid=51c62dee6c086d3c&packet=clue360" target="_blank"><font color="#000000">AI绘画</font></a></td>
+                        <td width="20%" align="center"><a href="https://midjourney.wxmyxz.com/" target="_blank"><font color="#000000">Midjourney中文站官网</font></a></td>
+                        <td width="20%" align="center"><a href="https://tusiart.com/" target="_blank"><font color="#000000">炼丹阁_TensorArt_模型等下载</font></a></td>
+                        <td width="20%" align="center"><a href="https://aliendao.cn/#/" target="_blank"><font color="#000000">异型岛</font></a></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="https://www.shaiyy.cn/" target="_blank"><font color="#000000">晒应用</font></a></td>
+                        <td width="20%" align="center"><a href="https://tools.aigcfun.com/" target="_blank"><font color="#000000">AIGC前沿站·工具箱</font></a></td>
+                        <td width="20%" align="center">
+                            <a href="https://space.bilibili.com/12566101" target="_blank"><font color="#000000">秋叶Stable Diffusion主页</font></a>&nbsp;
+                            <a href="https://pan.quark.cn/s/2c832199b09b#/list/share" target="_blank"><font color="#000000">秋叶Stable Diffusion下载</font></a>
+                        </td>
+                        <td width="20%" align="center">
+                            <a href="https://pan.baidu.com/s/1MjO3CpsIvTQIDXplhE0-OA?pwd=aaki" target="_blank"><font color="#000000">秋葉安装包</font></a>&nbsp;
+                            <a href="https://pan.baidu.com/s/1MjO3CpsIvTQIDXplhE0-OA?pwd=aaki" target="_blank"><font color="#000000">ConfyUI-aki</font></a>&nbsp;
+                            <a href="https://pan.baidu.com/s/1TBaoLkdJVjk_gPpqbUzZFw?pwd=p8uy" target="_blank"><font color="#000000">lora训练器</font></a>
+                        </td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" align="left" style="font-size: 20px;color: #ff0000" onclick="game()"><strong>游戏</strong></td>
+        </tr>
+        <tr id="game" style="display: none">
+            <td>
+                <table width="100%" border="1">
+                    <tr>
+                        <td width="20%" align="center"><a href="https://www.haosf.com/" target="_blank"><font color="#000000">好搜服传奇</font></a></td>
+                        <td width="20%" align="center"><a href="http://www.5fgo.com/" target="_blank"><font color="#000000">8866sf传奇游戏</font></a></td>
+                        <td width="20%" align="center"><a href="http://www.5pks.com/?reload=true" target="_blank"><font color="#000000">9搜服传奇</font></a></td>
+                        <td width="20%" align="center"><a href="https://www.996box.com/" target="_blank"><font color="#000000">996传奇BOX</font></a></td>
+                        <td width="20%" align="center"><a href="http://www.souwanmei.com/" target="_blank"><font color="#000000">完美私服</font></a></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+<!--
+                    <tr>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+                    </tr>-->
+                </table>
+            </td>
+        </tr>
+    </table>
+    <br/>
+</div>
+<!--<div id="div" style="width:auto;display: none">
+    <br/>
+    <table width="100%" border="1">
+        <tr>
+            <td colspan="5" style="font-size: 20px" onclick=""><font color="#ff0000"></font></td>
+        </tr>
+        <tr id="" style="display: none">
+            <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+            <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+            <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+            <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+            <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+        </tr>
+    </table>
+    <br/>
+</div>-->
+<!--工作区收藏夹-->
+<span style="font-size: 20px"><font color="#ff0000">工作区</font></span>
+<table width="100%" border="1" align="center">
+    <tr>
+        <td width="20%" align="center"><a href="http://www.gov.cn/" target="_blank"><font color="#000000">中国人民政府网</font></a></td>
+        <td width="20%" align="center"><a href="http://www.forestry.gov.cn/" target="_blank"><font color="#000000">国家林业和草原局政府网</font></a></td>
+        <td width="20%" align="center"><a href="http://www.mnr.gov.cn/" target="_blank"><font color="#000000">自然资源部门户网站</font></a></td>
+        <td width="20%" align="center"><a href="http://lyt.ln.gov.cn/" target="_blank"><font color="#000000">省林业和草原局</font></a></td>
+        <td width="20%" align="center"><a href="http://www.ln.gov.cn/" target="_blank"><font color="#000000">省人民政府</font></a></td>
+    </tr>
+    <tr>
+        <td width="20%" align="center"><a href="http://zrzy.ln.gov.cn/" target="_blank"><font color="#000000">省自然资源厅</font></a></td>
+        <td width="20%" align="center"><a href="http://www.fushun.gov.cn/" target="_blank"><font color="#000000">市人民政府</font></a></td>
+        <td width="20%" align="center"><a href="http://zrzy.fushun.gov.cn" target="_blank"><font color="#000000">市自然资源局</font></a></td>
+        <td width="20%" align="center"><a href="http://nyncj.fushun.gov.cn" target="_blank"><font color="#000000">市农业农村局</font></a></td>
+        <td width="20%" align="center"><a href="http://fsfgw.fushun.gov.cn" target="_blank"><font color="#000000">市发改委</font></a></td>
+    </tr>
+    <tr>
+        <td width="20%" align="center"><a href="http://gxj.fushun.gov.cn/" target="_blank"><font color="#000000">市工信局</font></a></td>
+        <td width="20%" align="center"><a href="http://fsjyj.fushun.gov.cn/" target="_blank"><font color="#000000">市教育局</font></a></td>
+        <td width="20%" align="center"><a href="http://fskjj.fushun.gov.cn" target="_blank"><font color="#000000">市科技局</font></a></td>
+        <td width="20%" align="center"><a href="http://ga.fushun.gov.cn/" target="_blank"><font color="#000000">市公安局</font></a></td>
+        <td width="20%" align="center"><a href="http://fssmzj.fushun.gov.cn" target="_blank"><font color="#000000">市民政局</font></a></td>
+    </tr>
+    <tr>
+        <td width="20%" align="center"><a href="http://fsssfj.fushun.gov.cn" target="_blank"><font color="#000000">市司法局</font></a></td>
+        <td width="20%" align="center"><a href="http://fsczj.fushun.gov.cn" target="_blank"><font color="#000000">市财政局</font></a></td>
+        <td width="20%" align="center"><a href="http://fsrs.fushun.gov.cn" target="_blank"><font color="#000000">市人社局</font></a></td>
+        <td width="20%" align="center"><a href="http://zjj.fushun.gov.cn/" target="_blank"><font color="#000000">市住建局</font></a></td>
+        <td width="20%" align="center"><a href="http://fssjtj.fushun.gov.cn" target="_blank"><font color="#000000">市交通运输局</font></a></td>
+    </tr>
+    <tr>
+        <td width="20%" align="center"><a href="http://fsswj.fushun.gov.cn/" target="_blank"><font color="#000000">市水务局</font></a></td>
+        <td width="20%" align="center"><a href="http://fswjw.fushun.gov.cn/" target="_blank"><font color="#000000">市卫健委</font></a></td>
+        <td width="20%" align="center"><a href="http://fssjj.fushun.gov.cn" target="_blank"><font color="#000000">市审计局</font></a></td>
+        <td width="20%" align="center"><a href="http://fssswj.fushun.gov.cn" target="_blank"><font color="#000000">市商务局</font></a></td>
+        <td width="20%" align="center"><a href="http://fssjrfzj.fushun.gov.cn/" target="_blank"><font color="#000000">市金融发展局</font></a></td>
+    </tr>
+    <tr>
+        <td width="20%" align="center"><a href="http://fssgzw.fushun.gov.cn" target="_blank"><font color="#000000">市国资委</font></a></td>
+        <td width="20%" align="center"><a href="http://fstjj.fushun.gov.cn/fstjj/" target="_blank"><font color="#000000">市统计局</font></a></td>
+        <td width="20%" align="center"><a href="http://zwfw.fushun.gov.cn" target="_blank"><font color="#000000">市营商局</font></a></td>
+        <td width="20%" align="center"><a href="http://yjglj.fushun.gov.cn" target="_blank"><font color="#000000">市应急局</font></a></td>
+        <td width="20%" align="center"><a href="http://www.fushun.gov.cn/002/002006/002006021/moreinfo.html" target="_blank"><font color="#000000">市乡村振兴局</font></a></td>
+    </tr>
+    <tr>
+        <td width="20%" align="center"><a href="http://fsyb.fushun.gov.cn" target="_blank"><font color="#000000">市医疗保障局</font></a></td>
+        <td width="20%" align="center"><a href="http://whly.fushun.gov.cn" target="_blank"><font color="#000000">市文旅广电局</font></a></td>
+        <td width="20%" align="center"><a href="http://scjdglj.fushun.gov.cn" target="_blank"><font color="#000000">市市场监督管理局</font></a></td>
+        <td width="20%" align="center"><a href="https://email.163.com/" target="_blank"><font color="#000000">网易邮箱</font></a></td>
+        <td width="20%" align="center"><a href="https://www.163.com/" target="_blank"><font color="#000000">网易</font></a></td>
+    </tr>
+    <tr>
+        <td width="20%" align="center"><a href="https://www.baidu.com/" target="_blank"><font color="#000000">百度</font></a></td>
+        <td width="20%" align="center"><a href="https://zyjstest.lngbzx.gov.cn/pc/index.html#/" target="_blank"><font color="#000000">辽宁干部在线专技学习</font></a></td>
+        <td width="20%" align="center"><a href="https://lngbzx.gbykt.com/pc/index.html#/" target="_blank"><font color="#000000">辽宁干部在线学习</font></a></td>
+        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+    </tr>
+    <tr>
+        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+        <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+    </tr>
+<!--
+        <tr>
+            <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+            <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+            <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+            <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+            <td width="20%" align="center"><a href="" target="_blank"><font color="#000000"></font></a></td>
+        </tr>
+-->
+</table>
+</body>
+</html>
